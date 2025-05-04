@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'VT323';
+    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+  }
+
+  body {
+    font-family: 'VT323', monospace;
+    @apply bg-black text-white;
+  }
+}
+
+@layer components {
+  .retro-button {
+    @apply px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 
+           text-white font-bold rounded border-2 border-cyan-300
+           hover:from-cyan-400 hover:to-blue-400
+           active:scale-95 transition-all duration-150
+           shadow-[0_0_10px_rgba(0,255,255,0.5)]
+           hover:shadow-[0_0_20px_rgba(0,255,255,0.7)];
+  }
+
+  .retro-table {
+    @apply border-collapse bg-black bg-opacity-50 rounded-lg overflow-hidden
+           shadow-[0_0_20px_rgba(0,255,255,0.2)];
+  }
+}
+
+@layer utilities {
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+    }
+  }
+
+  .bg-scanlines {
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(0, 0, 0, 0.5) 50%
+    );
+    background-size: 100% 4px;
+    animation: scanlines 10s linear infinite;
+  }
+
+  @keyframes scanlines {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 100%;
+    }
+  }
+}
